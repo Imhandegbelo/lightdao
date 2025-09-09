@@ -1,19 +1,15 @@
 // import { useState } from "react";
-import { Footer } from "./components/Footer";
-import { TopNav } from "./components/TopNav";
-import { Footer as LayoutFooter } from "./components/layout/Footer";
 import { Routes, Route } from "react-router-dom";
-import { Navbar } from "./components/layout/Navbar";
 import { DashboardLayout } from "./layout/DashboardLayout";
+import { Home } from "./pages/Home";
 
 function App() {
   return (
     <>
-      <DashboardLayout/>
-      {/* <Navbar />
-
-      <Footer />
-      <LayoutFooter /> */}
+    <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard/*" element={<DashboardLayout />} />
+    </Routes>
     </>
   );
 }
