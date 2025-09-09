@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --color-primary: oklch(0.5745 0.2288 288.36);
+  --color-secondary: oklch(0.6252 0.255091 357.2936);
+  --color-accent: oklch(0.852 0.1426 88.93);
+  --color-background: oklch(0.9275 0.0345 264.36);
+  --color-surface: oklch(0.8745 0.045 264.36);
+  --color-error: oklch(0.45 0.25 29.36);
+  --color-on-primary: oklch(0.95 0.05 264.36);
+  --color-on-secondary: oklch(0.95 0.05 264.36);
+}
+
+@font-face {
+  font-family: 'DM Sans', sans-serif;
+  font-display: swap;
+  font-weight: 400 600;
+  font-style: normal;
+  src: url(/fonts/DMSans-VariableFont_opsz,wght.ttf) format('truetype');
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
