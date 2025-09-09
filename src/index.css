@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', sans-serif;
+  --font-inter: 'Inter', sans-serif;
   --color-primary: oklch(0.5745 0.2288 288.36);
   --color-secondary: oklch(0.6252 0.255091 357.2936);
   --color-accent: oklch(0.852 0.1426 88.93);
@@ -10,14 +10,6 @@
   --color-error: oklch(0.45 0.25 29.36);
   --color-on-primary: oklch(0.95 0.05 264.36);
   --color-on-secondary: oklch(0.95 0.05 264.36);
-}
-
-@font-face {
-  font-family: 'DM Sans', sans-serif;
-  font-display: swap;
-  font-weight: 400 600;
-  font-style: normal;
-  src: url(/fonts/DMSans-VariableFont_opsz,wght.ttf) format('truetype');
 }
 
 
