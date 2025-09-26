@@ -12,13 +12,13 @@ export const Navbar = () => {
     <nav className="font-inter px-6 py-4 flex gap-4 justify-between shadow-lg">
       <div className="flex items-center gap-6 w-full">
         <Link to="/" className="text-primary font-black">
-          <img src="/icons/logo.svg" alt="LightDAO" />
+          <img src="/icons/logo.svg" alt="LightDAO" width="125px" />
         </Link>
         <input
           type="search"
           name="serch"
           placeholder="Search items, collections, and accounts"
-          className="rounded-full py-3 px-6 bg-gray-200 w-full max-w-[500px] placeholder:font-light placeholder:text-sm placeholder:text-gray-400"
+          className="hidden md:block rounded-full py-3 px-6 bg-gray-200 w-full max-w-[500px] placeholder:font-light placeholder:text-sm placeholder:text-gray-400"
         />
       </div>
       <div className="flex gap-4 items-center">

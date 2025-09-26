@@ -2,7 +2,7 @@ import { Footer } from "../components/shared/Footer";
 
 export const Home = () => {
   return (
-    <div>
+    <div className="font-inter">
       <Footer />
     </div>
   );
