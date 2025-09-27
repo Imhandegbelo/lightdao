@@ -1,5 +1,6 @@
 import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/shared/Footer";
+import { gettingStarted } from "../data/resourceData";
 import { selectedDrops } from "../data/selectedDrops";
 
 export const Home = () => {
@@ -26,9 +27,9 @@ export const Home = () => {
       </section>
 
       {/* Selected Drop */}
-      <section className="px-6 md:px-12 lg:px-20 space-y-12">
+      <section className="px-6 md:px-12 lg:px-20 space-y-12 pb-12">
         <h2>Selected notable drops</h2>
-        <div className="grid grid-cols-2 grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {selectedDrops.map((drop, idx) => (
             <div
               key={"drop" + idx}
@@ -70,6 +71,28 @@ export const Home = () => {
                   ))}
                 </div>
               </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Resources for getting started */}
+      <section className="px-6 md:px-12 lg:px-20 py-12 space-y-12 bg-gray-100">
+        <h2>Resources for getting started</h2>
+        <div className="flex flex-col md:flex-row justify-center gap-4">
+          {gettingStarted.map((card, idx) => (
+            <div className="rounded-2xl bg-white p-4 space-y-4">
+              <img
+                src={card.img}
+                alt={`resource` + idx}
+                className="w-full rounded-xl h-[170px] object-center object-cover"
+              />
+              <h3 className="font-bold">{card.title}</h3>
+              <p className="text-sm">{card.description}</p>
+
+              <a href="#" className="text-sm font-bold">
+                See more details
+              </a>
             </div>
           ))}
         </div>
