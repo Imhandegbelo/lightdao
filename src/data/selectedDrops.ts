@@ -1,0 +1,50 @@
+export const selectedDrops = [
+  {
+    name: "Lion of Judah",
+    price: 0.45,
+    img: "/images/nfts/lion.webp",
+    isLive: true,
+    date: "01 Nov 2022",
+    count: 24,
+    authors: ["/images/avatars/avatar1.png", "/images/avatars/avatar2.png"],
+  },
+  {
+    name: "Light Lady",
+    price: 0.05,
+    img: "/images/nfts/light-lady.webp",
+    isLive: false,
+    date: "01 Nov 2022",
+    count: 32,
+    authors: [
+      "/images/avatars/avatar3.png",
+      "/images/avatars/avatar4.png",
+      "/images/avatars/avatar5.png",
+    ],
+  },
+  {
+    name: "Light Lady",
+    price: 17.59,
+    img: "/images/nfts/warrior.webp",
+    isLive: true,
+    date: "01 Nov 2022",
+    count: 20,
+    authors: [
+      "/images/avatars/avatar5.png",
+      "/images/avatars/avatar4.png",
+      "/images/avatars/avatar6.png",
+    ],
+  },
+  {
+    name: "Behind One of Big Hacks",
+    price: 9,
+    img: "/images/nfts/warrior.webp",
+    isLive: false,
+    date: "18 Aug 2022",
+    count: 28,
+    authors: [
+      "/images/avatars/avatar6.png",
+      "/images/avatars/avatar3.png",
+      "/images/avatars/avatar9.png",
+    ],
+  },
+];

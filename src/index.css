@@ -12,6 +12,18 @@
   --color-on-secondary: oklch(0.95 0.05 264.36);
 }
 
+@layer base {
+  h2{
+    @apply text-[1.75rem] font-extrabold text-center
+  }
+}
+
+@layer components {
+  .pill{
+    @apply rounded-full py-3 px-6 text-xs font-bold bg-gray-200 text-gray-500
+  }
+}
+
 @font-face {
   font-family: "ethnocentric";
   src: url("/fonts/ethnocentric-regular.ttf") format("truetype");

@@ -13,7 +13,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 }) => {
   return (
     <div className="min-h-screen flex flex-col justify-betwe/en">
-      <Navbar />
+      <Navbar hasShadow hasSearch />
       <main className="h-[calc(100vh-9.5rem)] flex justify-between">
         <SideNav />
 
