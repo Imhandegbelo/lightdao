@@ -1,14 +1,26 @@
+import { useState } from "react";
+import { CollectionCard } from "../components/home/CollectionCard";
 import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/shared/Footer";
+import { collections } from "../data/collectionData";
 import { gettingStarted } from "../data/resourceData";
 import { selectedDrops } from "../data/selectedDrops";
 
 export const Home = () => {
+  const [filters, setFilters] = useState<
+    | "all"
+    | "trending"
+    | "collectibles"
+    | "domain-names"
+    | "music"
+    | "photography"
+  >("all");
+
   return (
     <div className="min-h-screen font-inter bg-[url(/images/lightdao-bg.webp)] bg-center-top bg-contain bg-no-repeat">
       <Navbar logoColor="white" />
       {/* Hero */}
-      <section className="flex items-center justify-center px-6 md:px-12 h-[400px] max-h-[700px] md:bg-[url(/images/home/bg-circles.webp)] bg-center bg-no-repeat bg-contain">
+      <section className="flex items-center justify-center px-6 md:px-12 h-[400px] max-h-[700px] md:bg-[url(/images/home/bg-circles.webp)] bg-center bg-no-repeat bg-contain xl:bg-cover ">
         <div className="max-w-[720px] mx-auto text-center">
           <h1 className="font-black text-4xl md:text-5xl lg:text-[54px]">
             Discover, collect, and sell Faith Driven NFTs
@@ -27,7 +39,7 @@ export const Home = () => {
       </section>
 
       {/* Selected Drop */}
-      <section className="px-6 md:px-12 lg:px-20 space-y-12 pb-12">
+      <section className="px-6 md:px-12 lg:px-20 space-y-12 pb-12 max-w-[1440px] mx-auto">
         <h2>Selected notable drops</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {selectedDrops.map((drop, idx) => (
@@ -64,7 +76,7 @@ export const Home = () => {
                       key={"author" + idx}
                       src={author}
                       alt={"author" + idx}
-                      className={`rounded-full border border-white ${
+                      className={`rounded-full border border-white size-[35px] ${
                         idx > 0 && "-ml-2"
                       }`}
                     />
@@ -76,8 +88,60 @@ export const Home = () => {
         </div>
       </section>
 
+      {/* Top Selling Collections */}
+      <section className="px-6 md:px-12 lg:px-20 py-12 space-y-12 max-w-[1440px] mx-auto">
+        <h2>
+          Top sellings collections{" "}
+          <span className="text-primary">last 7 days</span>
+        </h2>
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col lg:flex-row gap-6 w-full lg:w-2/3">
+            <div className="flex flex-col gap-4 w-full">
+              {collections.slice(0, 3).map((collection, idx) => (
+                <CollectionCard
+                  key={`col1` + idx}
+                  img={collection.img}
+                  name={collection.name}
+                  change={collection.change}
+                  volume={collection.volume}
+                  count={idx + 1}
+                />
+              ))}
+            </div>
+            <div className="flex flex-col gap-4 w-full">
+              {collections.slice(3, 6).map((collection, idx) => (
+                <CollectionCard
+                  key={`col2` + idx}
+                  img={collection.img}
+                  name={collection.name}
+                  change={collection.change}
+                  volume={collection.volume}
+                  count={idx + 3}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col gap-4 w-full lg:w-1/3">
+            {collections.slice(-3).map((collection, idx) => (
+              <CollectionCard
+                key={`col3` + idx}
+                img={collection.img}
+                name={collection.name}
+                change={collection.change}
+                volume={collection.volume}
+                count={idx + 6}
+              />
+            ))}
+          </div>
+        </div>
+
+        <button className="block pill cursor-pointer mx-auto bg-primary/40 font-semibold text-primary hover:bg-primary/70 hover:text-white w-40 px-8">
+          Load More
+        </button>
+      </section>
+
       {/* Resources for getting started */}
-      <section className="px-6 md:px-12 lg:px-20 py-12 space-y-12 bg-gray-100">
+      <section className="px-6 md:px-12 lg:px-20 py-12 space-y-12 bg-gray-100 max-w-[1440px] mx-auto">
         <h2>Resources for getting started</h2>
         <div className="flex flex-col md:flex-row justify-center gap-4">
           {gettingStarted.map((card, idx) => (
@@ -88,7 +152,7 @@ export const Home = () => {
                 className="w-full rounded-xl h-[170px] object-center object-cover"
               />
               <h3 className="font-bold">{card.title}</h3>
-              <p className="text-sm">{card.description}</p>
+              <p className="text-sm text-gray-600">{card.description}</p>
 
               <a href="#" className="text-sm font-bold">
                 See more details
@@ -96,6 +160,37 @@ export const Home = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Popular NFTs */}
+      <section className="py-12 space-y-12 max-w-[1440px] mx-auto">
+        <h2>Browse Popular NFTs</h2>
+        <div className="flex justify-center gap-4 border-b">
+          {[
+            "all",
+            "trending",
+            "collectibles",
+            "domain-names",
+            "music",
+            "photography",
+          ].map((filter) => (
+            <button
+              key={filter}
+              onClick={() => setFilters(filters)}
+              className={`whitespace-nowrap rounded-md capitalize text-lg p-2 pb-6 border-b-2 border-transparent ${
+                filters === filter ? "border-gray-800 text-gray-800" : "text-gray-500"
+              } hover:border-gray-800 capitalize`}
+            >
+              {filter === "domain-names" ? "Domain Names" : filter}
+            </button>
+          ))}
+        </div>
+        <div className="px-6 md:px-12 lg:px-20 grid md:grid-cols-2 lg:grid-cols-4">
+          
+        </div>
+        <button className="block pill cursor-pointer mx-auto bg-primary/40 font-semibold text-primary hover:bg-primary/70 hover:text-white w-40 px-8">
+          Load More
+        </button>
       </section>
       <Footer />
     </div>
