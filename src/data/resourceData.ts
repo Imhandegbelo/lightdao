@@ -6,7 +6,7 @@ export const gettingStarted = [
     },
     {
         title: "I think I minted duplicate NFTs",
-        description:"What’s better than an NFT? 2 NFTs! But you don't always want to mint 2 NFTs of the same artwork.",
+        description:"What's better than an NFT? 2 NFTs! But you don't always want to mint 2 NFTs of the same artwork.",
         img: "/images/home/getting-started2.webp"
     },
     {

@@ -5,6 +5,8 @@ import { Footer } from "../components/shared/Footer";
 import { collections } from "../data/collectionData";
 import { gettingStarted } from "../data/resourceData";
 import { selectedDrops } from "../data/selectedDrops";
+import { browseData } from "../data/browseData";
+import { BrowseNFTCard } from "../components/home/BrowseNFTCard";
 
 export const Home = () => {
   const [filters, setFilters] = useState<
@@ -135,7 +137,7 @@ export const Home = () => {
           </div>
         </div>
 
-        <button className="block pill cursor-pointer mx-auto bg-primary/40 font-semibold text-primary hover:bg-primary/70 hover:text-white w-40 px-8">
+        <button className="block pill cursor-pointer mx-auto bg-primary/40 font-semibold text-primary hover:bg-primary hover:text-white w-40 px-8">
           Load More
         </button>
       </section>
@@ -165,7 +167,7 @@ export const Home = () => {
       {/* Popular NFTs */}
       <section className="py-12 space-y-12 max-w-[1440px] mx-auto">
         <h2>Browse Popular NFTs</h2>
-        <div className="flex justify-center gap-4 border-b">
+        <div className="flex justify-center gap-4 border-b border-gray-300">
           {[
             "all",
             "trending",
@@ -177,18 +179,22 @@ export const Home = () => {
             <button
               key={filter}
               onClick={() => setFilters(filters)}
-              className={`whitespace-nowrap rounded-md capitalize text-lg p-2 pb-6 border-b-2 border-transparent ${
-                filters === filter ? "border-gray-800 text-gray-800" : "text-gray-500"
+              className={`whitespace-nowrap capitalize text-lg p-2 pb-4 border-b-2 ${
+                filters === filter
+                  ? "border-gray-800 text-gray-800"
+                  : "border-transparent text-gray-500"
               } hover:border-gray-800 capitalize`}
             >
               {filter === "domain-names" ? "Domain Names" : filter}
             </button>
           ))}
         </div>
-        <div className="px-6 md:px-12 lg:px-20 grid md:grid-cols-2 lg:grid-cols-4">
-          
+        <div className="px-6 md:px-12 lg:px-20 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {browseData.map((data, idx) => (
+            <BrowseNFTCard key={`nft-` + idx} {...data} />
+          ))}
         </div>
-        <button className="block pill cursor-pointer mx-auto bg-primary/40 font-semibold text-primary hover:bg-primary/70 hover:text-white w-40 px-8">
+        <button className="block pill cursor-pointer mx-auto bg-primary/40 font-semibold text-primary hover:bg-primary hover:text-white w-40 px-8">
           Load More
         </button>
       </section>
