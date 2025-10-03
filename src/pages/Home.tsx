@@ -7,6 +7,7 @@ import { gettingStarted } from "../data/resourceData";
 import { selectedDrops } from "../data/selectedDrops";
 import { browseData } from "../data/browseData";
 import { BrowseNFTCard } from "../components/home/BrowseNFTCard";
+import { trending } from "../data/trending";
 
 export const Home = () => {
   const [filters, setFilters] = useState<
@@ -16,6 +17,7 @@ export const Home = () => {
     | "domain-names"
     | "music"
     | "photography"
+    | string
   >("all");
 
   return (
@@ -142,6 +144,17 @@ export const Home = () => {
         </button>
       </section>
 
+      {/* Trending NFTs */}
+      <section className="px-6 md:px-12 lg:px-20 py-12 space-y-12 bg-gray-100 max-w-[1440px] mx-auto">
+        <h2>Trending NFTs</h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {trending.map((item, idx) => (
+            <BrowseNFTCard key={`trend` + idx} {...item} isPopular />
+          ))}
+        </div>
+      </section>
+
       {/* Resources for getting started */}
       <section className="px-6 md:px-12 lg:px-20 py-12 space-y-12 bg-gray-100 max-w-[1440px] mx-auto">
         <h2>Resources for getting started</h2>
@@ -178,7 +191,7 @@ export const Home = () => {
           ].map((filter) => (
             <button
               key={filter}
-              onClick={() => setFilters(filters)}
+              onClick={() => setFilters(filter)}
               className={`whitespace-nowrap capitalize text-lg p-2 pb-4 border-b-2 ${
                 filters === filter
                   ? "border-gray-800 text-gray-800"

@@ -61,13 +61,13 @@ export const Footer = () => {
             onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
               event.preventDefault()
             }
-            className="py-2 flex border border-gray-400 rounded-full w-full max-w-[19rem] px-6"
+            className="py-2 flex border border-gray-400 rounded-full w-full max-w-[19rem] pl-4 pr-2"
           >
             <input
               type="text"
               name="email"
               placeholder="Enter your email"
-              className="py-1 border-transparent placeholder:text-gray-500"
+              className="py-1 border-transparent placeholder:text-gray-500 w-full"
             />
             <button
               type="submit"

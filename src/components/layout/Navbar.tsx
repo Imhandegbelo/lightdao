@@ -10,7 +10,7 @@ interface NavbarProps {
 }
 
 const links = [
-  { title: "Explore", path: "#" },
+  { title: "Explore", path: "/explore" },
   { title: "Stats", path: "#" },
   { title: "Drops", path: "#" },
   { title: "Activity", path: "#" },

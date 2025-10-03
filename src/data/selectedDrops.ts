@@ -22,9 +22,9 @@ export const selectedDrops = [
     ],
   },
   {
-    name: "Light Lady",
+    name: "BeHope - Church project",
     price: 17.59,
-    img: "/images/nfts/warrior.webp",
+    img: "/images/nfts/stairs.webp",
     isLive: true,
     date: "01 Nov 2022",
     count: 20,

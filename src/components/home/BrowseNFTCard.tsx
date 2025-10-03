@@ -7,6 +7,7 @@ interface NFTCardProps {
   name: string;
   avatar: string;
   author: string;
+  isPopular?: boolean;
 }
 
 export const BrowseNFTCard: React.FC<NFTCardProps> = ({
@@ -16,9 +17,10 @@ export const BrowseNFTCard: React.FC<NFTCardProps> = ({
   name,
   author,
   avatar,
+  isPopular,
 }) => {
   return (
-    <div className="relative rounded-2xl border border-gray-200">
+    <div className="relative rounded-2xl border border-gray-300">
       <span className="absolute top-2 right-2 bg-white rounded-full py-2 px-5 font-bold text-sm">
         {count}
       </span>
@@ -34,11 +36,20 @@ export const BrowseNFTCard: React.FC<NFTCardProps> = ({
       />
       <div className="text-center pb-6 mt-2">
         <h3 className="text-lg font-extrabold">{name}</h3>
-        <p className="text-sm text-gray-500">by {author}</p>
-        <div className="flex gap-2 w-fit mx-auto mt-6">
-          <img src="/icons/solana.svg" alt="sol" />
-          <p className="font-bold text-sm">{price} sol</p>
-        </div>
+        <p className="text-sm text-gray-500">
+          by{" "}
+          <span className={`${isPopular ? "text-primary" : ""}`}>{author}</span>
+        </p>
+        {isPopular ? (
+          <p className="text-center text-gray-600 text-sm mt-4">
+            Lorem ipsum odor amet, consectetuer adipiscing elit.
+          </p>
+        ) : (
+          <div className="flex gap-2 w-fit mx-auto mt-6">
+            <img src="/icons/solana.svg" alt="sol" />
+            <p className="font-bold text-sm">{price} sol</p>
+          </div>
+        )}
       </div>
     </div>
   );
